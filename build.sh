@@ -1,1 +1,1 @@
-docker build -t boostrap .
+docker build -t bootstrap .

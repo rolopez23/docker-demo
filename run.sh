@@ -1,1 +1,1 @@
-docker run -d -p 3000:3127 --rm bootstrap
+docker run -d -p 3000:3127 --name bootstrap --rm bootstrap
