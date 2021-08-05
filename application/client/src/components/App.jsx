@@ -1,17 +1,43 @@
-import React from 'react';
-const axios = require('axios');
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Toast from 'react-bootstrap/Toast';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
-  render() {
-    return (
-      <div>I am a simple react app</div>
-    )
-  };
-}
+import './App.css';
+
+const ExampleToast = ({ children }) => {
+  const [show, toggleShow] = useState(true);
+
+  return (
+    <>
+      {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
+      <Toast show={show} onClose={() => toggleShow(false)}>
+        <Toast.Header>
+          <strong className="mr-auto">React Bootstrap Docker Demo</strong>
+        </Toast.Header>
+        <Toast.Body>{children}</Toast.Body>
+      </Toast>
+    </>
+  );
+};
+
+const App = () => (
+  <Container className="p-3">
+    <Jumbotron>
+      <h1 className="header">React App with Bootstrap and a Button</h1>
+      <ExampleToast>
+        <span role="img" aria-label="tada">
+          🎉
+        </span>
+        We now have Toasts
+        <span role="img" aria-label="tada">
+          🎉
+        </span>
+      </ExampleToast>
+    </Jumbotron>
+  </Container>
+);
 
 export default App;
